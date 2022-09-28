@@ -34,7 +34,18 @@ h3 a{
   margin: 0 auto;
 }
 h3.alert{
-  color: red;
+  color: rgb(0, 0, 0);
+  padding: 15px;
+  background-color:  rgb(246, 214, 7);
+  margin: 15px;
+}
+h3#resultado{
+  text-align: center;
+  margin: 20px auto;
+  font-weight: 300;
+  background-color: chartreuse;
+  border-radius: 2px;
+  padding: 5px;
 }
 p{
   font-size: 1.5rem;

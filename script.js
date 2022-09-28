@@ -41,20 +41,24 @@ fetch(`https://viacep.com.br/ws/${cep}/json/`)
 
 // Utilizando a API https://blockchain.info/ticker retorne no DOM o valor de compra da bitcoin and reais atualize este valor a cada 30s;
 
+const btc = document.querySelector('.btc');
 
-// const bitcoin = ;
-// const reais =;
 
-function fetchBitcoin(){
-  fetch(`https://blockchain.info/ticker`)
-  .then(r => r.json())
-  .then(body =>{
-    console.log(body)
+function fetchBtc(){
+  fetch('https://blockchain.info/ticker')
+  .then(res => res.json())
+  .then(btcJson =>{
+    btc.innerHTML = ('R$ ' + btcJson.BRL.buy).replace('.', ',');
   })
 }
+// setInterval(fetchBtc, 30000);
 
-function atualizarValor(){
-  setInterval({},30000)
-}
+fetchBtc();
 
 //Utilizando a API https://api.chucknorris.io/jokes/random, exiba uma piada aleatória toda vez que o usuário clicar em um botão escrito 'próximo';  
+
+fetch(`https://api.chucknorris.io/jokes/random`)
+.then(r => r.json())
+.then(body =>{
+  console.log(body)
+})

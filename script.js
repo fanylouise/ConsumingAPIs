@@ -1,7 +1,6 @@
-//EXERCÍCIOS
+//ViaCep API 
 
-// Utilizando a API https://viacep.com.br/ws/${CEP}/json/ crie um formulário onde o usuário pode digitar o CEP e ao submeter o formulário, exiba as informaçõee do endereço completo.
-
+//pegando class para criar variáveis
 const inputCep = document.querySelector('.cep');
 const cepDigitado = document.querySelector('.cepDigitado');
 const logradouro = document.querySelector('.logradouro')
@@ -15,13 +14,17 @@ const ddd = document.querySelector('.ddd');
 const btn = document.querySelector('.btn');
 const resultado = document.querySelector('.resultado');
 
+//adicionando evento de click ao botão 'enviar'
 btn.addEventListener('click', handleClick); 
 
+//pegando valor do input e adicionando a uma variavel
+//chamando função de mostrar resultado colocando a variavel 
 function handleClick(event){
 event.preventDefault();
 const cep  = inputCep.value;
 verEndereco(cep)
 }
+//função de pegar dados da API
 function verEndereco(cep){
 fetch(`https://viacep.com.br/ws/${cep}/json/`)
 .then(r => r.json())
@@ -38,27 +41,51 @@ fetch(`https://viacep.com.br/ws/${cep}/json/`)
   ddd.innerHTML = 'DDD: ' +body.ddd;
 })
 }
+//fim utilização da API ViaCEP.
 
-// Utilizando a API https://blockchain.info/ticker retorne no DOM o valor de compra da bitcoin and reais atualize este valor a cada 30s;
 
+
+
+//BlockChain API
+
+//variavel que recebera valor da API
 const btc = document.querySelector('.btc');
 
 
+//Buscando dado da API
 function fetchBtc(){
   fetch('https://blockchain.info/ticker')
   .then(res => res.json())
   .then(btcJson =>{
-    btc.innerHTML = ('R$ ' + btcJson.BRL.buy).replace('.', ',');
+    btc.innerHTML = ('R$ ' + btcJson.BRL.buy).replace('.', ',');//colocando dados recebidos no HTML
   })
 }
 // setInterval(fetchBtc, 30000);
 
-fetchBtc();
+fetchBtc();//chamando função 
+
+
+//fim da utilização da API BlockChain
+
+
+//ChuckNorris API
+
+
 
 //Utilizando a API https://api.chucknorris.io/jokes/random, exiba uma piada aleatória toda vez que o usuário clicar em um botão escrito 'próximo';  
 
-fetch(`https://api.chucknorris.io/jokes/random`)
+const piada = document.querySelector('.piada');
+const nextBtn = document.querySelector('.nextBtn');
+
+nextBtn.addEventListener('click', pegarPiada)
+
+
+function pegarPiada(){
+  fetch(`https://api.chucknorris.io/jokes/random`)
 .then(r => r.json())
 .then(body =>{
-  console.log(body)
+  console.log(body.value)
+  piada.innerHTML = '"'+ body.value + '"';
+
 })
+}

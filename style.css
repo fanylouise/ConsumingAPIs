@@ -1,3 +1,5 @@
+/*General*/
+
 *{
   box-sizing: border-box;
   margin: 0;
@@ -13,7 +15,7 @@ section{
 h1{
   font-size: 2rem;
   background-color: rgb(40, 150, 228);
-  border-radius: 5px;
+  border-radius: 3px;
   width: 300px;
   text-align: center;
   margin: 10px auto;
@@ -24,12 +26,20 @@ h2{
   margin: 10px;
   font-size: 3rem;
 }
+h2.piada{
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  background-color: rgb(233, 9, 147);
+  max-width: 400px;
+  border-radius: 3px;
+}
+
 h3 a{
   color: gray;
   text-decoration: none;
   font-style: italic;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
   margin: 0 auto;
 }
@@ -44,7 +54,7 @@ h3#resultado{
   margin: 20px auto;
   font-weight: 300;
   background-color: chartreuse;
-  border-radius: 2px;
+  border-radius: 3px;
   padding: 5px;
 }
 p{
@@ -54,6 +64,7 @@ p{
   padding: 10px;
  
 }
+/*CEP Input*/
 input{
   padding: 10px;
   margin: 5px;
@@ -63,16 +74,18 @@ input[type=number]::-webkit-inner-spin-button,
     input[type=number]::-webkit-outer-spin-button {
         -webkit-appearance: none;
 }
+/*Button*/
 button{
   padding: 11px;
   background-color: rgb(24, 212, 36);
-  border-radius: 5px;
+  border-radius: 3px;
   border: 0px solid;
   cursor: pointer;
 }
 button:hover{
   background-color: rgb(11, 224, 68);
 }
+/*Footer*/
 footer{
   display: flex;
   justify-content: center;
